@@ -11,27 +11,27 @@ import javapns.devices.implementations.basic.BasicDevice;
  * @author Sylvain Pedneault
  */
 public class PayloadPerDevice {
-  private final Payload payload;
-  private final Device device;
+    private final Payload payload;
+    private final Device device;
 
-  public PayloadPerDevice(final Payload payload, final String token) throws InvalidDeviceTokenFormatException {
-    super();
-    this.payload = payload;
-    this.device = new BasicDevice(token);
-  }
+    public PayloadPerDevice(final Payload payload, final String token) throws InvalidDeviceTokenFormatException {
+        super();
+        this.payload = payload;
+        this.device = new BasicDevice(token);
+    }
 
-  public PayloadPerDevice(final Payload payload, final Device device) {
-    super();
-    this.payload = payload;
-    this.device = device;
-  }
+    public PayloadPerDevice(final Payload payload, final Device device) {
+        super();
+        this.payload = payload;
+        this.device = device;
+    }
 
-  public Payload getPayload() {
-    return payload;
-  }
+    public Payload getPayload() {
+        return payload;
+    }
 
-  public Device getDevice() {
-    return device;
-  }
+    public Device getDevice() {
+        return device;
+    }
 
 }

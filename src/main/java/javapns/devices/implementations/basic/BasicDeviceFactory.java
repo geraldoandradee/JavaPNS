@@ -25,78 +25,78 @@ import java.util.Map;
  */
 @Deprecated
 public class BasicDeviceFactory implements DeviceFactory {
-  /* synclock */
-  private static final Object synclock = new Object();
-  /* A map containing all the devices, identified with their id */
-  private final Map<String, BasicDevice> devices;
+    /* synclock */
+    private static final Object synclock = new Object();
+    /* A map containing all the devices, identified with their id */
+    private final Map<String, BasicDevice> devices;
 
-  /**
-   * Constructs a VolatileDeviceFactory
-   */
-  public BasicDeviceFactory() {
-    this.devices = new HashMap<>();
-  }
+    /**
+     * Constructs a VolatileDeviceFactory
+     */
+    public BasicDeviceFactory() {
+        this.devices = new HashMap<>();
+    }
 
-  /**
-   * Add a device to the map
-   *
-   * @param id    The device id
-   * @param token The device token
-   * @throws DuplicateDeviceException
-   * @throws NullIdException
-   * @throws NullDeviceTokenException
-   */
-  public Device addDevice(final String id, String token) throws Exception {
-    if ((id == null) || (id.trim().equals(""))) {
-      throw new NullIdException();
-    } else if ((token == null) || (token.trim().equals(""))) {
-      throw new NullDeviceTokenException();
-    } else {
-      if (!this.devices.containsKey(id)) {
-        final BasicDevice device = new BasicDevice(id, token.trim().replace(" ", ""), new Timestamp(Calendar.getInstance().getTime().getTime()));
-        this.devices.put(id, device);
-        return device;
-      } else {
-        throw new DuplicateDeviceException();
-      }
+    /**
+     * Add a device to the map
+     *
+     * @param id    The device id
+     * @param token The device token
+     * @throws DuplicateDeviceException
+     * @throws NullIdException
+     * @throws NullDeviceTokenException
+     */
+    public Device addDevice(final String id, String token) throws Exception {
+        if ((id == null) || (id.trim().equals(""))) {
+            throw new NullIdException();
+        } else if ((token == null) || (token.trim().equals(""))) {
+            throw new NullDeviceTokenException();
+        } else {
+            if (!this.devices.containsKey(id)) {
+                final BasicDevice device = new BasicDevice(id, token.trim().replace(" ", ""), new Timestamp(Calendar.getInstance().getTime().getTime()));
+                this.devices.put(id, device);
+                return device;
+            } else {
+                throw new DuplicateDeviceException();
+            }
+        }
     }
-  }
 
-  /**
-   * Get a device according to his id
-   *
-   * @param id The device id
-   * @return The device
-   * @throws UnknownDeviceException
-   * @throws NullIdException
-   */
-  public Device getDevice(final String id) throws UnknownDeviceException, NullIdException {
-    if ((id == null) || (id.trim().equals(""))) {
-      throw new NullIdException();
-    } else {
-      if (this.devices.containsKey(id)) {
-        return this.devices.get(id);
-      } else {
-        throw new UnknownDeviceException();
-      }
+    /**
+     * Get a device according to his id
+     *
+     * @param id The device id
+     * @return The device
+     * @throws UnknownDeviceException
+     * @throws NullIdException
+     */
+    public Device getDevice(final String id) throws UnknownDeviceException, NullIdException {
+        if ((id == null) || (id.trim().equals(""))) {
+            throw new NullIdException();
+        } else {
+            if (this.devices.containsKey(id)) {
+                return this.devices.get(id);
+            } else {
+                throw new UnknownDeviceException();
+            }
+        }
     }
-  }
 
-  /**
-   * Remove a device
-   *
-   * @param id The device id
-   * @throws UnknownDeviceException
-   * @throws NullIdException
-   */
-  public void removeDevice(final String id) throws UnknownDeviceException, NullIdException {
-    if ((id == null) || (id.trim().equals(""))) {
-      throw new NullIdException();
+    /**
+     * Remove a device
+     *
+     * @param id The device id
+     * @throws UnknownDeviceException
+     * @throws NullIdException
+     */
+    public void removeDevice(final String id) throws UnknownDeviceException, NullIdException {
+        if ((id == null) || (id.trim().equals(""))) {
+            throw new NullIdException();
+        }
+        if (this.devices.containsKey(id)) {
+            this.devices.remove(id);
+        } else {
+            throw new UnknownDeviceException();
+        }
     }
-    if (this.devices.containsKey(id)) {
-      this.devices.remove(id);
-    } else {
-      throw new UnknownDeviceException();
-    }
-  }
 }

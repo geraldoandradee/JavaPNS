@@ -10,18 +10,18 @@ import java.security.KeyStore;
  * @author Sylvain Pedneault
  */
 class WrappedKeystore extends InputStream {
-  private final KeyStore keystore;
+    private final KeyStore keystore;
 
-  WrappedKeystore(final KeyStore keystore) {
-    this.keystore = keystore;
-  }
+    WrappedKeystore(final KeyStore keystore) {
+        this.keystore = keystore;
+    }
 
-  public KeyStore getKeystore() {
-    return keystore;
-  }
+    public KeyStore getKeystore() {
+        return keystore;
+    }
 
-  @Override
-  public int read() throws IOException {
-    return 0;
-  }
+    @Override
+    public int read() throws IOException {
+        return 0;
+    }
 }

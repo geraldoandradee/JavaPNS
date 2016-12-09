@@ -15,35 +15,35 @@ import javapns.devices.exceptions.UnknownDeviceException;
  */
 @Deprecated
 public interface DeviceFactory {
-  /**
-   * Add a device to the map
-   *
-   * @param id    The local device id
-   * @param token The device token
-   * @return The device created
-   * @throws DuplicateDeviceException
-   * @throws NullIdException
-   * @throws NullDeviceTokenException
-   */
-  Device addDevice(String id, String token) throws Exception;
+    /**
+     * Add a device to the map
+     *
+     * @param id    The local device id
+     * @param token The device token
+     * @return The device created
+     * @throws DuplicateDeviceException
+     * @throws NullIdException
+     * @throws NullDeviceTokenException
+     */
+    Device addDevice(String id, String token) throws Exception;
 
-  /**
-   * Get a device according to his id
-   *
-   * @param id The local device id
-   * @return The device
-   * @throws UnknownDeviceException
-   * @throws NullIdException
-   */
-  Device getDevice(String id) throws UnknownDeviceException, NullIdException;
+    /**
+     * Get a device according to his id
+     *
+     * @param id The local device id
+     * @return The device
+     * @throws UnknownDeviceException
+     * @throws NullIdException
+     */
+    Device getDevice(String id) throws UnknownDeviceException, NullIdException;
 
-  /**
-   * Remove a device
-   *
-   * @param id The local device id
-   * @throws UnknownDeviceException
-   * @throws NullIdException
-   */
-  void removeDevice(String id) throws UnknownDeviceException, NullIdException;
+    /**
+     * Remove a device
+     *
+     * @param id The local device id
+     * @throws UnknownDeviceException
+     * @throws NullIdException
+     */
+    void removeDevice(String id) throws UnknownDeviceException, NullIdException;
 
 }

@@ -12,59 +12,59 @@ import org.slf4j.LoggerFactory;
  */
 public class NewsstandNotificationPayload extends Payload {
 
-  static final Logger logger = LoggerFactory.getLogger(NewsstandNotificationPayload.class);
+    static final Logger logger = LoggerFactory.getLogger(NewsstandNotificationPayload.class);
 
-  /* The application Dictionnary */
-  private final JSONObject apsDictionary;
+    /* The application Dictionnary */
+    private final JSONObject apsDictionary;
 
-  /**
-   * Create a default payload with a blank "aps" dictionary.
-   */
-  private NewsstandNotificationPayload() {
-    super();
-    this.apsDictionary = new JSONObject();
-    try {
-      final JSONObject payload = getPayload();
-      payload.put("aps", this.apsDictionary);
-    } catch (final JSONException e) {
-      logger.error(e.getMessage(), e);
+    /**
+     * Create a default payload with a blank "aps" dictionary.
+     */
+    private NewsstandNotificationPayload() {
+        super();
+        this.apsDictionary = new JSONObject();
+        try {
+            final JSONObject payload = getPayload();
+            payload.put("aps", this.apsDictionary);
+        } catch (final JSONException e) {
+            logger.error(e.getMessage(), e);
+        }
     }
-  }
 
-  /**
-   * Create a pre-defined payload with a content-available property set to 1.
-   *
-   * @return a ready-to-send newsstand payload
-   */
-  public static NewsstandNotificationPayload contentAvailable() {
-    final NewsstandNotificationPayload payload = complex();
-    try {
-      payload.addContentAvailable();
-    } catch (final JSONException e) {
-      // empty
+    /**
+     * Create a pre-defined payload with a content-available property set to 1.
+     *
+     * @return a ready-to-send newsstand payload
+     */
+    public static NewsstandNotificationPayload contentAvailable() {
+        final NewsstandNotificationPayload payload = complex();
+        try {
+            payload.addContentAvailable();
+        } catch (final JSONException e) {
+            // empty
+        }
+        return payload;
     }
-    return payload;
-  }
 
-  /**
-   * Create an empty payload which you can configure later (most users should not use this).
-   * This method is usually used to create complex or custom payloads.
-   * Note: the payload actually contains the default "aps"
-   * dictionary required by Newsstand.
-   *
-   * @return a blank payload that can be customized
-   */
-  private static NewsstandNotificationPayload complex() {
-    return new NewsstandNotificationPayload();
-  }
+    /**
+     * Create an empty payload which you can configure later (most users should not use this).
+     * This method is usually used to create complex or custom payloads.
+     * Note: the payload actually contains the default "aps"
+     * dictionary required by Newsstand.
+     *
+     * @return a blank payload that can be customized
+     */
+    private static NewsstandNotificationPayload complex() {
+        return new NewsstandNotificationPayload();
+    }
 
-  private void addContentAvailable() throws JSONException {
-    addContentAvailable(1);
-  }
+    private void addContentAvailable() throws JSONException {
+        addContentAvailable(1);
+    }
 
-  private void addContentAvailable(final int contentAvailable) throws JSONException {
-    logger.debug("Adding ContentAvailable [" + contentAvailable + "]");
-    this.apsDictionary.put("content-available", contentAvailable);
-  }
+    private void addContentAvailable(final int contentAvailable) throws JSONException {
+        logger.debug("Adding ContentAvailable [" + contentAvailable + "]");
+        this.apsDictionary.put("content-available", contentAvailable);
+    }
 
 }

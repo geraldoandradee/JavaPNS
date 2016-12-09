@@ -11,15 +11,15 @@ import java.security.cert.X509Certificate;
  * @author Sylvain Pedneault
  */
 class ServerTrustingTrustManager implements X509TrustManager {
-  public void checkClientTrusted(final X509Certificate[] chain, final String authType) throws CertificateException {
-    throw new CertificateException("Client is not trusted.");
-  }
+    public void checkClientTrusted(final X509Certificate[] chain, final String authType) throws CertificateException {
+        throw new CertificateException("Client is not trusted.");
+    }
 
-  public void checkServerTrusted(final X509Certificate[] chain, final String authType) {
-    // trust all servers
-  }
+    public void checkServerTrusted(final X509Certificate[] chain, final String authType) {
+        // trust all servers
+    }
 
-  public X509Certificate[] getAcceptedIssuers() {
-    return null;
-  }
+    public X509Certificate[] getAcceptedIssuers() {
+        return null;
+    }
 }

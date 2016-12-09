@@ -8,30 +8,30 @@ package javapns.devices.exceptions;
 
 public class UnknownDeviceException extends Exception {
 
-  private static final long serialVersionUID = -322193098126184434L;
-  /* Custom message for this exception */
-  private final String message;
+    private static final long serialVersionUID = -322193098126184434L;
+    /* Custom message for this exception */
+    private final String message;
 
-  /**
-   * Constructor
-   */
-  public UnknownDeviceException() {
-    this.message = "Unknown client";
-  }
+    /**
+     * Constructor
+     */
+    public UnknownDeviceException() {
+        this.message = "Unknown client";
+    }
 
-  /**
-   * Constructor with custom message
-   *
-   * @param message
-   */
-  public UnknownDeviceException(final String message) {
-    this.message = message;
-  }
+    /**
+     * Constructor with custom message
+     *
+     * @param message
+     */
+    public UnknownDeviceException(final String message) {
+        this.message = message;
+    }
 
-  /**
-   * String representation
-   */
-  public String toString() {
-    return this.message;
-  }
+    /**
+     * String representation
+     */
+    public String toString() {
+        return this.message;
+    }
 }

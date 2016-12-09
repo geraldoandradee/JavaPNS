@@ -8,13 +8,13 @@ import javapns.communication.AppleServer;
  * @author Sylvain Pedneault
  */
 public interface AppleNotificationServer extends AppleServer {
-  String PRODUCTION_HOST = "gateway.push.apple.com";
-  int PRODUCTION_PORT = 2195;
+    String PRODUCTION_HOST = "gateway.push.apple.com";
+    int PRODUCTION_PORT = 2195;
 
-  String DEVELOPMENT_HOST = "gateway.sandbox.push.apple.com";
-  int DEVELOPMENT_PORT = 2195;
+    String DEVELOPMENT_HOST = "gateway.sandbox.push.apple.com";
+    int DEVELOPMENT_PORT = 2195;
 
-  String getNotificationServerHost();
+    String getNotificationServerHost();
 
-  int getNotificationServerPort();
+    int getNotificationServerPort();
 }

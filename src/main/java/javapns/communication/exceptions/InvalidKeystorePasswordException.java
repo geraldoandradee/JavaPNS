@@ -8,22 +8,22 @@ package javapns.communication.exceptions;
 
 public class InvalidKeystorePasswordException extends KeystoreException {
 
-  private static final long serialVersionUID = 5973743951334025887L;
+    private static final long serialVersionUID = 5973743951334025887L;
 
-  /**
-   * Constructor
-   */
-  public InvalidKeystorePasswordException() {
-    super("Invalid keystore password!  Verify settings for connecting to Apple...");
-  }
+    /**
+     * Constructor
+     */
+    public InvalidKeystorePasswordException() {
+        super("Invalid keystore password!  Verify settings for connecting to Apple...");
+    }
 
-  /**
-   * Constructor with custom message
-   *
-   * @param message
-   */
-  public InvalidKeystorePasswordException(final String message) {
-    super(message);
-  }
+    /**
+     * Constructor with custom message
+     *
+     * @param message
+     */
+    public InvalidKeystorePasswordException(final String message) {
+        super(message);
+    }
 
 }

@@ -9,21 +9,21 @@ import org.json.JSONObject;
  * @author Sylvain Pedneault
  */
 class WiFiPayload extends MobileConfigPayload {
-  public WiFiPayload(final int payloadVersion, final String payloadOrganization, final String payloadIdentifier, final String payloadDisplayName, final String ssidStr, final boolean hiddenNetwork, final String encryptionType) throws JSONException {
-    super(payloadVersion, "com.apple.wifi.managed", payloadOrganization, payloadIdentifier, payloadDisplayName);
-    final JSONObject payload = getPayload();
-    payload.put("SSID_STR", ssidStr);
-    payload.put("HIDDEN_NETWORK", hiddenNetwork);
-    payload.put("EncryptionType", encryptionType);
-  }
+    public WiFiPayload(final int payloadVersion, final String payloadOrganization, final String payloadIdentifier, final String payloadDisplayName, final String ssidStr, final boolean hiddenNetwork, final String encryptionType) throws JSONException {
+        super(payloadVersion, "com.apple.wifi.managed", payloadOrganization, payloadIdentifier, payloadDisplayName);
+        final JSONObject payload = getPayload();
+        payload.put("SSID_STR", ssidStr);
+        payload.put("HIDDEN_NETWORK", hiddenNetwork);
+        payload.put("EncryptionType", encryptionType);
+    }
 
-  public void setPassword(final String value) throws JSONException {
-    getPayload().put("Password", value);
-  }
+    public void setPassword(final String value) throws JSONException {
+        getPayload().put("Password", value);
+    }
 
-  public JSONObject addEAPClientConfiguration() throws JSONException {
-    final JSONObject object = new JSONObject();
-    getPayload().put("EAPClientConfiguration", object);
-    return object;
-  }
+    public JSONObject addEAPClientConfiguration() throws JSONException {
+        final JSONObject object = new JSONObject();
+        getPayload().put("EAPClientConfiguration", object);
+        return object;
+    }
 }

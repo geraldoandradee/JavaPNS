@@ -10,22 +10,22 @@ import org.json.JSONException;
 
 public class PayloadAlertAlreadyExistsException extends JSONException {
 
-  private static final long serialVersionUID = -4514511954076864373L;
+    private static final long serialVersionUID = -4514511954076864373L;
 
-  /**
-   * Default constructor
-   */
-  public PayloadAlertAlreadyExistsException() {
-    super("Payload alert already exists");
-  }
+    /**
+     * Default constructor
+     */
+    public PayloadAlertAlreadyExistsException() {
+        super("Payload alert already exists");
+    }
 
-  /**
-   * Constructor with custom message
-   *
-   * @param message
-   */
-  public PayloadAlertAlreadyExistsException(final String message) {
-    super(message);
-  }
+    /**
+     * Constructor with custom message
+     *
+     * @param message
+     */
+    public PayloadAlertAlreadyExistsException(final String message) {
+        super(message);
+    }
 
 }

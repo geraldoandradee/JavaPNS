@@ -12,21 +12,21 @@ import java.security.KeyStore;
  * @author Sylvain Pedneault
  */
 public class ConnectionToFeedbackServer extends ConnectionToAppleServer {
-  public ConnectionToFeedbackServer(final AppleFeedbackServer feedbackServer) throws KeystoreException {
-    super(feedbackServer);
-  }
+    public ConnectionToFeedbackServer(final AppleFeedbackServer feedbackServer) throws KeystoreException {
+        super(feedbackServer);
+    }
 
-  public ConnectionToFeedbackServer(final AppleNotificationServer server, final KeyStore keystore) throws KeystoreException {
-    super(server, keystore);
-  }
+    public ConnectionToFeedbackServer(final AppleNotificationServer server, final KeyStore keystore) throws KeystoreException {
+        super(server, keystore);
+    }
 
-  @Override
-  public String getServerHost() {
-    return ((AppleFeedbackServer) getServer()).getFeedbackServerHost();
-  }
+    @Override
+    public String getServerHost() {
+        return ((AppleFeedbackServer) getServer()).getFeedbackServerHost();
+    }
 
-  @Override
-  public int getServerPort() {
-    return ((AppleFeedbackServer) getServer()).getFeedbackServerPort();
-  }
+    @Override
+    public int getServerPort() {
+        return ((AppleFeedbackServer) getServer()).getFeedbackServerPort();
+    }
 }

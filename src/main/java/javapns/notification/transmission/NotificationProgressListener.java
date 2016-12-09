@@ -6,15 +6,15 @@ package javapns.notification.transmission;
  * @author Sylvain Pedneault
  */
 public interface NotificationProgressListener {
-  void eventAllThreadsStarted(NotificationThreads notificationThreads);
+    void eventAllThreadsStarted(NotificationThreads notificationThreads);
 
-  void eventThreadStarted(NotificationThread notificationThread);
+    void eventThreadStarted(NotificationThread notificationThread);
 
-  void eventThreadFinished(NotificationThread notificationThread);
+    void eventThreadFinished(NotificationThread notificationThread);
 
-  void eventConnectionRestarted(NotificationThread notificationThread);
+    void eventConnectionRestarted(NotificationThread notificationThread);
 
-  void eventAllThreadsFinished(NotificationThreads notificationThreads);
+    void eventAllThreadsFinished(NotificationThreads notificationThreads);
 
-  void eventCriticalException(NotificationThread notificationThread, Exception exception);
+    void eventCriticalException(NotificationThread notificationThread, Exception exception);
 }

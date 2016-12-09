@@ -8,19 +8,19 @@ package javapns.notification.exceptions;
 
 public class PayloadIsEmptyException extends Exception {
 
-  private static final long serialVersionUID = 8142083854784121700L;
+    private static final long serialVersionUID = 8142083854784121700L;
 
-  public PayloadIsEmptyException() {
-    super("Payload is empty");
-  }
+    public PayloadIsEmptyException() {
+        super("Payload is empty");
+    }
 
-  /**
-   * Constructor with custom message
-   *
-   * @param message
-   */
-  public PayloadIsEmptyException(final String message) {
-    super(message);
-  }
+    /**
+     * Constructor with custom message
+     *
+     * @param message
+     */
+    public PayloadIsEmptyException(final String message) {
+        super(message);
+    }
 
 }

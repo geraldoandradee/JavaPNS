@@ -14,67 +14,67 @@ import java.util.List;
  * @author Sylvain Pedneault
  */
 public interface PushQueue {
-  /**
-   * Queue a message for delivery.  A thread will pick it up and push it asynchroneously.
-   * This method has no effect if the underlying notification thread is not in QUEUE mode.
-   *
-   * @param payload a payload
-   * @param token   a device token
-   * @return the actual queue to which the message was added, which could be a different one if the request was delegated to a sub-queue
-   * @throws InvalidDeviceTokenFormatException
-   */
-  PushQueue add(Payload payload, String token) throws InvalidDeviceTokenFormatException;
+    /**
+     * Queue a message for delivery.  A thread will pick it up and push it asynchroneously.
+     * This method has no effect if the underlying notification thread is not in QUEUE mode.
+     *
+     * @param payload a payload
+     * @param token   a device token
+     * @return the actual queue to which the message was added, which could be a different one if the request was delegated to a sub-queue
+     * @throws InvalidDeviceTokenFormatException
+     */
+    PushQueue add(Payload payload, String token) throws InvalidDeviceTokenFormatException;
 
-  /**
-   * Queue a message for delivery.  A thread will pick it up and push it asynchroneously.
-   * This method has no effect if the underlying notification thread is not in QUEUE mode.
-   *
-   * @param payload a payload
-   * @param device  a device
-   * @return the actual queue to which the message was added, which could be a different one if the request was delegated to a sub-queue
-   */
-  PushQueue add(Payload payload, Device device);
+    /**
+     * Queue a message for delivery.  A thread will pick it up and push it asynchroneously.
+     * This method has no effect if the underlying notification thread is not in QUEUE mode.
+     *
+     * @param payload a payload
+     * @param device  a device
+     * @return the actual queue to which the message was added, which could be a different one if the request was delegated to a sub-queue
+     */
+    PushQueue add(Payload payload, Device device);
 
-  /**
-   * Queue a message for delivery.  A thread will pick it up and push it asynchroneously.
-   * This method has no effect if the underlying notification thread is not in QUEUE mode.
-   *
-   * @param message a payload/device pair
-   * @return the actual queue to which the message was added, which could be a different one if the request was delegated to a sub-queue
-   */
-  PushQueue add(PayloadPerDevice message);
+    /**
+     * Queue a message for delivery.  A thread will pick it up and push it asynchroneously.
+     * This method has no effect if the underlying notification thread is not in QUEUE mode.
+     *
+     * @param message a payload/device pair
+     * @return the actual queue to which the message was added, which could be a different one if the request was delegated to a sub-queue
+     */
+    PushQueue add(PayloadPerDevice message);
 
-  /**
-   * Start the transmission thread(s) working for the queue.
-   *
-   * @return the queue itself, as a handy shortcut to create and start a queue in a single line of code
-   */
-  PushQueue start();
+    /**
+     * Start the transmission thread(s) working for the queue.
+     *
+     * @return the queue itself, as a handy shortcut to create and start a queue in a single line of code
+     */
+    PushQueue start();
 
-  /**
-   * Get a list of critical exceptions that underlying threads experienced.
-   * Critical exceptions include CommunicationException and KeystoreException.
-   * Exceptions related to tokens, payloads and such are *not* included here,
-   * as they are noted in individual PushedNotification objects.
-   * If critical exceptions are present, the underlying thread(s) is most
-   * likely not working at all and you should solve the problem before
-   * trying to go any further.
-   *
-   * @return a list of critical exceptions
-   */
+    /**
+     * Get a list of critical exceptions that underlying threads experienced.
+     * Critical exceptions include CommunicationException and KeystoreException.
+     * Exceptions related to tokens, payloads and such are *not* included here,
+     * as they are noted in individual PushedNotification objects.
+     * If critical exceptions are present, the underlying thread(s) is most
+     * likely not working at all and you should solve the problem before
+     * trying to go any further.
+     *
+     * @return a list of critical exceptions
+     */
 
-  List<Exception> getCriticalExceptions();
+    List<Exception> getCriticalExceptions();
 
-  /**
-   * Get a list of all notifications pushed through this queue.
-   *
-   * @return a list of pushed notifications
-   */
-  PushedNotifications getPushedNotifications();
+    /**
+     * Get a list of all notifications pushed through this queue.
+     *
+     * @return a list of pushed notifications
+     */
+    PushedNotifications getPushedNotifications();
 
-  /**
-   * Clear the internal lists of PushedNotification objects maintained by this queue.
-   * You should invoke this method once you no longer need the list of PushedNotification objects so that memory can be reclaimed.
-   */
-  void clearPushedNotifications();
+    /**
+     * Clear the internal lists of PushedNotification objects maintained by this queue.
+     * You should invoke this method once you no longer need the list of PushedNotification objects so that memory can be reclaimed.
+     */
+    void clearPushedNotifications();
 }
